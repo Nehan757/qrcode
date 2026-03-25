@@ -13,8 +13,8 @@ st.markdown("""
         font-size: 1.1rem !important;
         padding: 0.75rem !important;
     }
-    /* Full-width download button, large tap target */
-    .stDownloadButton > button {
+    /* Full-width buttons, large tap target */
+    .stDownloadButton > button, .stButton > button {
         width: 100%;
         padding: 0.75rem;
         font-size: 1.1rem;
@@ -32,9 +32,9 @@ st.markdown("""
 st.title("QR Code Generator ❤️")
 st.caption("Made with love for my beautiful girlfriend 🌸")
 
-url = st.text_input("Enter a URL", placeholder="https://example.com")
+url = st.text_input("Enter a URL", placeholder="https://example.com", label_visibility="collapsed")
 
-if url:
+if st.button("✨ Generate QR Code", use_container_width=True) and url:
     qr = qrcode.QRCode(
         version=1,
         error_correction=qrcode.constants.ERROR_CORRECT_H,
